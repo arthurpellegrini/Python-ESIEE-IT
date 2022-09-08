@@ -16,6 +16,7 @@ def programme(conso: float) -> str:
         return "13,50€/mois + 14,83€/KWh"
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     conso = float(input("Combien consommez-vous ? : "))
     print("Le prix de l'abonnement sera de %s" % programme(conso))

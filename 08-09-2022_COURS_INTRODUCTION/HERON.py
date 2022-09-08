@@ -11,6 +11,7 @@ def heron_sqrt(nombre: float, precision: int) -> float:
     return an
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     nombre = float(input("La racine carrée de : "))
     precision = int(input("La précision de la racine carrée : "))

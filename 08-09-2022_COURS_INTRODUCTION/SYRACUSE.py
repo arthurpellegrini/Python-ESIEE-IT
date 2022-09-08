@@ -36,6 +36,7 @@ def cycle_syracuse(n: int) -> str:
     return ""
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     n = int(input("Un entier supérieur à 0 : "))
     N = int(input("La taille de la suite de syracuse : "))

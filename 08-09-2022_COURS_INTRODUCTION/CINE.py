@@ -28,5 +28,6 @@ def prix_place() -> float:
     return prix
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     print("Vous devez payer %.2f €." % prix_place())

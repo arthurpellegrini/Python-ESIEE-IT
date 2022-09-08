@@ -16,5 +16,6 @@ def jeu_echec() -> float:
     return float(tab[-1] * 2 * 10 ** (-8))
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     print("La masse de la totalité des grains riz est de %.8f tonnes." % jeu_echec())

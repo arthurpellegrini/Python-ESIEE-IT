@@ -25,6 +25,7 @@ def calcul_angle(a: float, b: float, c: float) -> float:
     return math.degrees(math.acos((b ** 2 + c ** 2 - a ** 2) / (2 * b * c)))
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     a = float(input("Donnez une valeur pour a : "))
     b = float(input("Donnez une valeur pour b : "))

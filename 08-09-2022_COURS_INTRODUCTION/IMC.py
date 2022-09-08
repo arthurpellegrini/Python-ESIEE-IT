@@ -8,6 +8,7 @@ def calcul_imc(masse: float, taille: float) -> float:
     return masse / (taille ** 2)
 
 
+# --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     prenom = input("Veuillez entrez votre prénom : ")
     taille = float(input("Veuillez entrez votre taille(en m) : "))
