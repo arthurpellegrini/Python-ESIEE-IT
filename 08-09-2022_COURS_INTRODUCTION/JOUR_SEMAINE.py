@@ -1,22 +1,22 @@
 # Variables Globales
-MOIS = {1: 0,
-        2: 3,
-        3: 3,
-        4: 6,
-        5: 1,
-        6: 4,
-        7: 6,
-        8: 2,
-        9: 5,
-        10: 0,
-        11: 3,
-        12: 5}
 SIECLES = {16: 6,
            17: 4,
            18: 2,
            19: 0,
            20: 6,
            21: 4}
+VALEURS_MOIS = {1: 0,
+                2: 3,
+                3: 3,
+                4: 6,
+                5: 1,
+                6: 4,
+                7: 6,
+                8: 2,
+                9: 5,
+                10: 0,
+                11: 3,
+                12: 5}
 JOURS_SEMAINE = ["Dimanche",
                  "Lundi",
                  "Mardi",
@@ -35,11 +35,11 @@ def jour_semaine(date_jour: str) -> str:
     date_jour = date_jour.split("/")
     num_jour, mois, annee = int(date_jour[0]), int(date_jour[1]), int(date_jour[2])
 
-    jour = annee % 100 + (annee % 100 // 4) + num_jour + MOIS[mois] + SIECLES[annee // 100]
+    jour = annee % 100 + (annee % 100 // 4) + num_jour + VALEURS_MOIS[mois] + SIECLES[annee // 100]
 
     # Vérification Année Bissextile et janvier/février
     if (annee % 4 == 0 and annee % 100 != 0 or annee % 400 == 0) and (mois == 1 or mois == 2):
-        jour = jour - 1
+        jour -= 1
 
     return JOURS_SEMAINE[jour % 7]
 
@@ -47,4 +47,4 @@ def jour_semaine(date_jour: str) -> str:
 # --------------------------------MAIN--------------------------------#
 if __name__ == '__main__':
     date = input("Donnez moi une date (au format JJ/MM/AAAA): ")
-    print("Le %s était un %s" % (date, jour_semaine(date)))
+    print("Le %s est un %s" % (date, jour_semaine(date)))
