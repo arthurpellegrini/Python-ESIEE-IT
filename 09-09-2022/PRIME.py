@@ -73,3 +73,5 @@ if __name__ == '__main__':
     print("Le nombre %i est premier : " % b, est_premier(b))
     print("%i et %i sont premier entre eux : " % (a, b), premier_entre_eux(a, b))
     print("%i et %i sont amicaux : " % (a, b), nombre_amicaux(a, b))
+
+    print(nombre_amicaux.__doc__)

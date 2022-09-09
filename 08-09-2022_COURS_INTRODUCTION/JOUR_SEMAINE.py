@@ -1,5 +1,6 @@
 CONSTANTES = {"SIECLES": {16: 6, 17: 4, 18: 2, 19: 0, 20: 6, 21: 4},
-              "VALEURS_MOIS": {1: 0, 2: 3, 3: 3, 4: 6, 5: 1, 6: 4, 7: 6, 8: 2, 9: 5, 10: 0, 11: 3, 12: 5},
+              "VALEURS_MOIS": {"Janvier": 0, "Février": 3, "Mars": 3, "Avril": 6, "Mai": 1, "Juin": 4,
+                               "Juillet": 6, "Août": 2, "Septembre": 5, "Octobre": 0, "Novembre": 3, "Décembre": 5},
               "JOURS_SEMAINE": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
               }
 
@@ -10,17 +11,23 @@ def jour_semaine(date_jour: str) -> str:
     :param date_jour: la date pour laquelle on recherche le jour de la semaine.
     :return: le jour de la semaine correspondant à la date fournie en paramètre.
     """
+    # On découpe la chaîne de caractères afin de récupérer le jour, le mois et l'année de la date
     date_jour = date_jour.split("/")
-    num_jour, mois, annee = int(date_jour[0]), int(date_jour[1]), int(date_jour[2])
+    num_jour, num_mois, num_annee = int(date_jour[0]), int(date_jour[1]), int(date_jour[2])
 
-    jour = annee % 100 + (annee % 100 // 4) + num_jour
-    jour += CONSTANTES["VALEURS_MOIS"][mois] + CONSTANTES["SIECLES"][annee // 100]
+    valeur = num_annee % 100 + (num_annee % 100 // 4) + num_jour + CONSTANTES["SIECLES"][num_annee // 100]
+
+    # On stocke le nom du mois correspondant à la date
+    mois = list(CONSTANTES["VALEURS_MOIS"].keys())[num_mois - 1]
+
+    # On ajoute la valeur correspondante au nom du mois
+    valeur += CONSTANTES["VALEURS_MOIS"][mois]
 
     # Vérification Année Bissextile et janvier/février
-    if (annee % 4 == 0 and annee % 100 != 0 or annee % 400 == 0) and (mois == 1 or mois == 2):
-        jour -= 1
+    if (num_annee % 4 == 0 and num_annee % 100 != 0 or num_annee % 400 == 0) and (num_mois == 1 or num_mois == 2):
+        valeur -= 1
 
-    return CONSTANTES["JOURS_SEMAINE"][jour % 7]
+    return CONSTANTES["JOURS_SEMAINE"][valeur % 7]
 
 
 # --------------------------------MAIN--------------------------------#
