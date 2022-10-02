@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src package &mdash; Documentation Star Wars (AP) Octobre 2022</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Star Wars (AP)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">src package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-src.Acteur">src.Acteur module</a><ul>
+<li><a class="reference internal" href="#src.Acteur.Acteur"><code class="docutils literal notranslate"><span class="pre">Acteur</span></code></a><ul>
+<li><a class="reference internal" href="#src.Acteur.Acteur.get_nom"><code class="docutils literal notranslate"><span class="pre">Acteur.get_nom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.get_personnages"><code class="docutils literal notranslate"><span class="pre">Acteur.get_personnages()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.get_prenom"><code class="docutils literal notranslate"><span class="pre">Acteur.get_prenom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.nb_personnages"><code class="docutils literal notranslate"><span class="pre">Acteur.nb_personnages()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.set_nom"><code class="docutils literal notranslate"><span class="pre">Acteur.set_nom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.set_personnages"><code class="docutils literal notranslate"><span class="pre">Acteur.set_personnages()</span></code></a></li>
+<li><a class="reference internal" href="#src.Acteur.Acteur.set_prenom"><code class="docutils literal notranslate"><span class="pre">Acteur.set_prenom()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.Film">src.Film module</a><ul>
+<li><a class="reference internal" href="#src.Film.Film"><code class="docutils literal notranslate"><span class="pre">Film</span></code></a><ul>
+<li><a class="reference internal" href="#src.Film.Film.calcul_benefice"><code class="docutils literal notranslate"><span class="pre">Film.calcul_benefice()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_acteurs"><code class="docutils literal notranslate"><span class="pre">Film.get_acteurs()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_annee_sortie"><code class="docutils literal notranslate"><span class="pre">Film.get_annee_sortie()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_cout"><code class="docutils literal notranslate"><span class="pre">Film.get_cout()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_num_episode"><code class="docutils literal notranslate"><span class="pre">Film.get_num_episode()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_recette"><code class="docutils literal notranslate"><span class="pre">Film.get_recette()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.get_titre"><code class="docutils literal notranslate"><span class="pre">Film.get_titre()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.is_before"><code class="docutils literal notranslate"><span class="pre">Film.is_before()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.nb_acteurs"><code class="docutils literal notranslate"><span class="pre">Film.nb_acteurs()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.nb_personnages"><code class="docutils literal notranslate"><span class="pre">Film.nb_personnages()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_acteurs"><code class="docutils literal notranslate"><span class="pre">Film.set_acteurs()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_annee_sortie"><code class="docutils literal notranslate"><span class="pre">Film.set_annee_sortie()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_cout"><code class="docutils literal notranslate"><span class="pre">Film.set_cout()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_episode"><code class="docutils literal notranslate"><span class="pre">Film.set_episode()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_recette"><code class="docutils literal notranslate"><span class="pre">Film.set_recette()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.set_titre"><code class="docutils literal notranslate"><span class="pre">Film.set_titre()</span></code></a></li>
+<li><a class="reference internal" href="#src.Film.Film.sort_acteurs"><code class="docutils literal notranslate"><span class="pre">Film.sort_acteurs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.Gentil">src.Gentil module</a><ul>
+<li><a class="reference internal" href="#src.Gentil.Gentil"><code class="docutils literal notranslate"><span class="pre">Gentil</span></code></a><ul>
+<li><a class="reference internal" href="#src.Gentil.Gentil.get_is_force"><code class="docutils literal notranslate"><span class="pre">Gentil.get_is_force()</span></code></a></li>
+<li><a class="reference internal" href="#src.Gentil.Gentil.set_is_force"><code class="docutils literal notranslate"><span class="pre">Gentil.set_is_force()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.Mechant">src.Mechant module</a><ul>
+<li><a class="reference internal" href="#src.Mechant.Mechant"><code class="docutils literal notranslate"><span class="pre">Mechant</span></code></a><ul>
+<li><a class="reference internal" href="#src.Mechant.Mechant.get_is_cote_obscur"><code class="docutils literal notranslate"><span class="pre">Mechant.get_is_cote_obscur()</span></code></a></li>
+<li><a class="reference internal" href="#src.Mechant.Mechant.set_cote_obscur"><code class="docutils literal notranslate"><span class="pre">Mechant.set_cote_obscur()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.Personnage">src.Personnage module</a><ul>
+<li><a class="reference internal" href="#src.Personnage.Personnage"><code class="docutils literal notranslate"><span class="pre">Personnage</span></code></a><ul>
+<li><a class="reference internal" href="#src.Personnage.Personnage.get_nom"><code class="docutils literal notranslate"><span class="pre">Personnage.get_nom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Personnage.Personnage.get_prenom"><code class="docutils literal notranslate"><span class="pre">Personnage.get_prenom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Personnage.Personnage.set_nom"><code class="docutils literal notranslate"><span class="pre">Personnage.set_nom()</span></code></a></li>
+<li><a class="reference internal" href="#src.Personnage.Personnage.set_prenom"><code class="docutils literal notranslate"><span class="pre">Personnage.set_prenom()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Star Wars (AP)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>src package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-package">
+<h1>src package<a class="headerlink" href="#src-package" title="Lien permanent vers cette rubrique"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+<section id="module-src.Acteur">
+<span id="src-acteur-module"></span><h2>src.Acteur module<a class="headerlink" href="#module-src.Acteur" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.Acteur.Acteur">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.Acteur.</span></span><span class="sig-name descname"><span class="pre">Acteur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">personnages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Acteur.Acteur" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Cette classe permet de définir un acteur.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.get_nom">
+<span class="sig-name descname"><span class="pre">get_nom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.Acteur.Acteur.get_nom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _nom de la classe Acteur.
+:return: Le nom de famille de l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.get_personnages">
+<span class="sig-name descname"><span class="pre">get_personnages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#src.Acteur.Acteur.get_personnages" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _personnages de la classe Acteur.
+:return: Les personnages de film qui ont été joué par l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.get_prenom">
+<span class="sig-name descname"><span class="pre">get_prenom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.Acteur.Acteur.get_prenom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _prenom de la classe Acteur.
+:return: Le prenom de l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.nb_personnages">
+<span class="sig-name descname"><span class="pre">nb_personnages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.Acteur.Acteur.nb_personnages" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de connaître le nombre de personnages joués par l’acteur.
+:return: Le nombre de personnages joués par l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.set_nom">
+<span class="sig-name descname"><span class="pre">set_nom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Acteur.Acteur.set_nom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _nom de la classe Acteur.
+:param nom: Le nouveau nom de famille de l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.set_personnages">
+<span class="sig-name descname"><span class="pre">set_personnages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">personnages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Acteur.Acteur.set_personnages" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _personnages de la classe Acteur.
+:param personnages: Le nouveau tuple contenant les personnages de film joués par l’acteur.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Acteur.Acteur.set_prenom">
+<span class="sig-name descname"><span class="pre">set_prenom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Acteur.Acteur.set_prenom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _prenom de la classe Acteur.
+:param prenom: Le nouveau prenom de l’acteur.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.Film">
+<span id="src-film-module"></span><h2>src.Film module<a class="headerlink" href="#module-src.Film" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.Film.Film">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.Film.</span></span><span class="sig-name descname"><span class="pre">Film</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">titre</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annee_sortie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_episode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recette</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acteurs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Cette classe permet de définir un film de la saga Star Wars.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.calcul_benefice">
+<span class="sig-name descname"><span class="pre">calcul_benefice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'float'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'bool'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.calcul_benefice" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de calculer les bénéfices (en Millions de $) à l’aide de son coût ainsi que de ces
+recettes.
+:return: Le bénéfice du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_acteurs">
+<span class="sig-name descname"><span class="pre">get_acteurs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.Film.Film.get_acteurs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _acteurs de la classe Film.
+:return: La liste des acteurs ayant joué dans le film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_annee_sortie">
+<span class="sig-name descname"><span class="pre">get_annee_sortie</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.Film.Film.get_annee_sortie" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _annee_sortie de la classe Film.
+:return: L’année de sortie du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_cout">
+<span class="sig-name descname"><span class="pre">get_cout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#src.Film.Film.get_cout" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _cout de la classe Film.
+:return: Le coût de production et diffusion du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_num_episode">
+<span class="sig-name descname"><span class="pre">get_num_episode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.Film.Film.get_num_episode" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _num_episode de la classe Film.
+:return: Le numéro correspondant à l’épisode du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_recette">
+<span class="sig-name descname"><span class="pre">get_recette</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#src.Film.Film.get_recette" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _recette de la classe Film.
+:return: Le total des recettes générées par le film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.get_titre">
+<span class="sig-name descname"><span class="pre">get_titre</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.Film.Film.get_titre" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _titre de la classe Film.
+:return: Le titre du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.is_before">
+<span class="sig-name descname"><span class="pre">is_before</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annee_film</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.Film.Film.is_before" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de savoir si le film est sortie avant un autre.
+:param annee_film: L’année du film à comparer.
+:return: True si l’année passée en paramètre est supérieure à l’année de l’objet et False si l’année passée
+en paramètre est antérieure à l’année de l’objet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.nb_acteurs">
+<span class="sig-name descname"><span class="pre">nb_acteurs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.Film.Film.nb_acteurs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de connaître le nombre d’acteurs jouant dans le film.
+:return: Le nombre d’acteurs qui jouent dans le film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.nb_personnages">
+<span class="sig-name descname"><span class="pre">nb_personnages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#src.Film.Film.nb_personnages" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de connaître le nombre total de personnages dans le film.
+:return: Le nombre total de personnages dans le film (tous les personnages joués par tous les acteurs).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_acteurs">
+<span class="sig-name descname"><span class="pre">set_acteurs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acteurs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_acteurs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _acteurs de la classe Film.
+:param acteurs: La nouvelle liste des acteurs ayant joué dans le film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_annee_sortie">
+<span class="sig-name descname"><span class="pre">set_annee_sortie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annee_sortie</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_annee_sortie" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _annee_sortie de la classe Film.
+:param annee_sortie: La nouvelle année de sortie du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_cout">
+<span class="sig-name descname"><span class="pre">set_cout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_cout" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _cout de la classe Film.
+:param cout: Le nouveau total des coûts liés à la production et à la diffusion du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_episode">
+<span class="sig-name descname"><span class="pre">set_episode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_episode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_episode" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _num_episode de la classe Film.
+:param num_episode: Le nouveau numéro correspondant à l’épisode du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_recette">
+<span class="sig-name descname"><span class="pre">set_recette</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recette</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_recette" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _recette de la classe Film.
+:param recette: Le nouveau total des recettes générées par le film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.set_titre">
+<span class="sig-name descname"><span class="pre">set_titre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">titre</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.set_titre" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _titre de la classe Film.
+:param titre: Le nouveau titre du film.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Film.Film.sort_acteurs">
+<span class="sig-name descname"><span class="pre">sort_acteurs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.Film.Film.sort_acteurs" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Cette méthode permet de trier les acteurs par ordre alphabétique des noms de familles puis des prénoms.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.Gentil">
+<span id="src-gentil-module"></span><h2>src.Gentil module<a class="headerlink" href="#module-src.Gentil" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.Gentil.Gentil">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.Gentil.</span></span><span class="sig-name descname"><span class="pre">Gentil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Gentil.Gentil" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.Personnage.Personnage" title="src.Personnage.Personnage"><code class="xref py py-class docutils literal notranslate"><span class="pre">Personnage</span></code></a></p>
+<p>Cette classe permet de définir un gentil de la saga Star Wars.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Gentil.Gentil.get_is_force">
+<span class="sig-name descname"><span class="pre">get_is_force</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.Gentil.Gentil.get_is_force" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _is_force de la classe Gentil.
+:return: Un booléen correspondant au fait que le gentil soit de la force ou non.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Gentil.Gentil.set_is_force">
+<span class="sig-name descname"><span class="pre">set_is_force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Gentil.Gentil.set_is_force" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _is_force de la classe Gentil.
+:param is_force: Le nouveau booléen correspondant au fait que le gentil soit de la force ou non.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.Mechant">
+<span id="src-mechant-module"></span><h2>src.Mechant module<a class="headerlink" href="#module-src.Mechant" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.Mechant.Mechant">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.Mechant.</span></span><span class="sig-name descname"><span class="pre">Mechant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_cote_obscur</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Mechant.Mechant" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.Personnage.Personnage" title="src.Personnage.Personnage"><code class="xref py py-class docutils literal notranslate"><span class="pre">Personnage</span></code></a></p>
+<p>Cette classe permet de définir un méchant de la saga Star Wars.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Mechant.Mechant.get_is_cote_obscur">
+<span class="sig-name descname"><span class="pre">get_is_cote_obscur</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.Mechant.Mechant.get_is_cote_obscur" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _is_cote_obscur de la classe Mechant.
+:return: Un booléen correspondant au fait que le méchant soit du côté obscur ou non.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Mechant.Mechant.set_cote_obscur">
+<span class="sig-name descname"><span class="pre">set_cote_obscur</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_cote_obscur</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Mechant.Mechant.set_cote_obscur" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _is_cote_obscur de la classe Mechant.
+:param is_cote_obscur: Le nouveau booléen correspondant au fait que le méchant soit du côté obscur ou non.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.Personnage">
+<span id="src-personnage-module"></span><h2>src.Personnage module<a class="headerlink" href="#module-src.Personnage" title="Lien permanent vers cette rubrique"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.Personnage.Personnage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.Personnage.</span></span><span class="sig-name descname"><span class="pre">Personnage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Personnage.Personnage" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Cette classe permet de définir un personnage de la saga Star Wars.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Personnage.Personnage.get_nom">
+<span class="sig-name descname"><span class="pre">get_nom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.Personnage.Personnage.get_nom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _nom de la classe Personnage.
+:return: Le nom de famille du personnage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Personnage.Personnage.get_prenom">
+<span class="sig-name descname"><span class="pre">get_prenom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.Personnage.Personnage.get_prenom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Accesseur de l’attribut _prenom de la classe Personnage.
+:return: Le prenom du personnage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Personnage.Personnage.set_nom">
+<span class="sig-name descname"><span class="pre">set_nom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Personnage.Personnage.set_nom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _nom de la classe Personnage.
+:param nom: Le nouveau nom de famille du personnage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.Personnage.Personnage.set_prenom">
+<span class="sig-name descname"><span class="pre">set_prenom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prenom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.Personnage.Personnage.set_prenom" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Mutateur de l’attribut _prenom de la classe Personnage.
+:param prenom: Le nouveau prenom du personnage.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src" title="Lien permanent vers cette rubrique"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Arthur PELLEGRINI.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
