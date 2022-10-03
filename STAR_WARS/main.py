@@ -77,6 +77,8 @@ if __name__ == "__main__":
     # Collection qui contient des objets Film
     liste_films = [film1, film2]  # , film3
 
+    print(film1.nb_personnages())
+
     # Test fonction tri des acteurs
     film1.sort_acteurs()
     film2.sort_acteurs()
