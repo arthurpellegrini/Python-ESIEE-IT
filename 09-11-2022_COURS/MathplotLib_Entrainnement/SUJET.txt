@@ -1,0 +1,64 @@
+Exercice : 
+
+faites afficher uniquement les informations utiles à savoir le numéro et le nom de la ligne grâce à panda en prenant comme base les données du fichier Excel
+
+listeLignes.xlsx
+
+
+
+
+Exercice : première approche de matplotlib
+
+
+
+soit le code suivant
+
+import matplotlib.pyplot as plt
+
+plt.title("Danger de la vitesse")
+
+plt.plot([50,100,150,200], [1,2,3,4])
+
+plt.xlabel('Vitesse')
+
+plt.ylabel('Temps')
+
+plt.show()
+
+
+
+qu'affiche t il ? A quoi servent chacune des instructions ?
+
+Essayez de rajouter une autre ligne du type plt.plot([50,100,150,200], [1,2,3,4]) avec d'autres valeurs, qu'observez vous ?
+
+
+
+Exercice : histogramme
+
+
+
+soit le code suivant
+
+qu'affiche t il ? A quoi servent chacune des instructions ?
+
+
+
+import matplotlib.pyplot as plt
+
+import random
+
+# 1000 tirages entre 0 et 150
+
+x = [random.randint(0,150) for i in range(1000)]
+
+n, bins, patches = plt.hist(x, 50, normed=1, facecolor='b', alpha=0.5)
+
+plt.xlabel('Mise')
+
+plt.ylabel(u'Probabilité')
+
+plt.axis([0, 150, 0, 0.02])
+
+plt.grid(True)
+
+plt.show()

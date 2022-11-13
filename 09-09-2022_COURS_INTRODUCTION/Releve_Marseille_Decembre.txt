@@ -1,0 +1,40 @@
+Latitude (decimal degrees):	43.291
+Longitude (decimal degrees):	5.391
+Radiation database:	PVGIS-CMSAF
+
+Results for: 	December
+Slope of plane (deg.):	 0
+Azimuth (orientation) of plane (deg.):	 0
+Time, UTC+1.00		G		Gb		Gd		Gc		Td
+00:45		0		0		0		0		11.7
+01:45		0		0		0		0		11.7
+02:45		0		0		0		0		11.6
+03:45		0		0		0		0		11.6
+04:45		0		0		0		0		11.5
+05:45		0		0		0		0		11.4
+06:45		0		0		0		0		11.4
+07:45		0		0		0		0		11.3
+08:45		78		29		49		92		11.4
+09:45		155		76		79		223		11.4
+10:45		230		123		106		330		11.4
+11:45		271		146		125		391		11.7
+12:45		273		144		129		397		11.9
+13:45		239		122		117		348		12.2
+14:45		169		81		87		250		12.3
+15:45		96		38		58		121		12.4
+16:45		14		0		14		13		12.6
+17:45		0		0		0		0		12.4
+18:45		0		0		0		0		12.3
+19:45		0		0		0		0		12.2
+20:45		0		0		0		0		12.1
+21:45		0		0		0		0		11.9
+22:45		0		0		0		0		11.8
+23:45		0		0		0		0		11.7
+
+G: Global irradiance on a fixed plane  (W/m2)
+Gb: Direct irradiance on a fixed plane  (W/m2)
+Gd: Diffuse irradiance on a fixed plane  (W/m2)
+Gc: Global clear-sky irradiance on a fixed plane  (W/m2)
+Td: Average daily temperature profile  (deg. C)
+
+PVGIS (c) European Communities, 2001-2017
