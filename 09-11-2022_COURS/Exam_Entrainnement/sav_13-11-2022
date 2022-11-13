@@ -1,0 +1,23 @@
+[
+    {
+        "TITRE": "titre",
+        "DATE": "13/11/2022",
+        "PRIX": 45.99,
+        "NB_PLACES": 150,
+        "ARTISTES": [
+            "Artiste[Personne[Nom:1,Prénom:Michel],NomScène:Olympia]",
+            "Artiste[Personne[Nom:2,Prénom:Michel],NomScène:Olympia]"
+        ]
+    },
+    {
+        "TITRE": "titre",
+        "DATE": "13/11/2022",
+        "PRIX": 95.99,
+        "NB_PLACES": 150,
+        "ARTISTES": [
+            "Artiste[Personne[Nom:Grand,Prénom:Michel],NomScène:Olympia]",
+            "Artiste[Personne[Nom:Dépêche,Prénom:Michel],NomScène:Grand Rex]",
+            "Artiste[Personne[Nom:François,Prénom:Michel],NomScène:Palais des Glaces]"
+        ]
+    }
+]
