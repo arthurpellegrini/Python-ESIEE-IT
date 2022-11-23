@@ -12,22 +12,21 @@ class DataBB:
         """
         self.data = pd.read_fwf(filename, encoding="latin-1", usecols=[0, 1, 5], names=["Date", "Heure", "Data"])
         self.data = self.data.drop_duplicates()
+        self.data = self.data[~self.data.Data.str.contains('method')]
 
-        indexes = []
-        for i in self.data['Data'].index:
-            if "method=" in self.data['Data'][i]:
-                indexes.append(i)
-        return self.data.drop(indexes)
+        return self.data
 
     def details_connexion_mail(self, mail: str) -> DataFrame:
-        pass
+        return self.data.loc[self.data['Data'].str.contains(mail)]
 
     def details_connexion_room(self, room: str):
         pass
 
 
 if __name__ == "__main__":
+
     dataBB = DataBB()
     dataBB.get_data("dataBB.log.txt")
+    dataBB.data = dataBB.data.reset_index(drop=True)  # réinitialise les index du dataframe
 
-    print(dataBB.data, dataBB.data.shape)
+    print(dataBB.data, dataBB.data.shape, dataBB.details_connexion_mail('jenyross@gmx.co.uk'))
