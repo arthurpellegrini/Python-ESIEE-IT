@@ -2,6 +2,7 @@ import pandas as pd
 from pandas import *
 from datetime import datetime
 
+
 class DataBB:
     def __init__(self):
         self.data = None
@@ -19,7 +20,7 @@ class DataBB:
 
     def delta_time(self, s1: str, s2: str) -> str:
         """
-
+        Permet de récupérer la différence de temps entre ces deux horaires.
         :param s1: date de l'ouverture de la salle
         :param s2: date de fermeture de la salle
         :return: La différence en minutes des deux heures passées en paramètres.
@@ -30,15 +31,21 @@ class DataBB:
 
     def details_connexion_prof(self, prof_id: str) -> str:
         """
-        Renvoie le détails des connexions d'un prof donné en paramètre
+        Permet de récupérer les détails des connexions en fonction de l'identifiant d'un professeur.
         :param prof_id: correspond au mail ou au numéro de salle du prof
-        :return:
+        :return: Une chaine de caractères qui contient les détails de connexion d'un professeur.
         """
+        if "@" not in prof_id:
+            all_log_prof = self.data.loc[
+                self.data['Data'].str.contains(prof_id)]
+            for i in range(all_log_prof.shape[0]):
+                if 'is starting room' in all_log_prof.iat[i, 2]:
+                    prof_id = all_log_prof.iat[0, 2].split(" ")[3]
+                    break
+
         all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]  # contient toutes les actions d'un prof
-        all_log_prof.sort_values(by=['Date'])  # trie par la date
 
         start_room_time, left_room_time, output = "", "", ""
-
         for i in range(all_log_prof.shape[0]):
 
             if 'is starting room' in all_log_prof.iat[i, 2]:
@@ -61,22 +68,13 @@ class DataBB:
 
         return output
 
-    def connexion_room(self, room):
-        return self.data.loc[self.data['Data'].str.contains('is starting room ' + room)]
-        # arriver à extraire le nom du prof à partir du log issues de la salle
-        pass
-
     def details_connexion_eleve(self, room: str):
-        # On souhaite pouvoir rentrer l'email d'un prof ou le numéro de sa salle et On souhaite
-        # savoir quel élève s'est connecté et la durée de la connexion de l'élève pour chaque fois
-        # que le prof a ouvert sa salle
-        # piste : récupérer le num de la salle et tracker les messages : Bea is joining room bea-jfv-wpa-arz
-        # => certains prof génère un msg joining room donc il faut les exclures du dataset généré.
-        # l'élève génère un left the room quand il part sinon on considère que lorsque le porf quitte la salle les élèves aussi
-        pass
+        # l'élève génère un left the room quand il part sinon on considère que lorsque le prof quitte la salle les élèves aussi
 
-    def details_connexion_student(self, student: str):
-        return self.data.loc[self.data['Data'].str.contains(student)]
+        # if 'is joining room' in all_log_prof.iat[i, 2]:
+        #     output += all_log_prof.iat[i, 0] + "\t" + prof_id + " is joining room at " + all_log_prof.iat[
+        #         i, 1] + "\n"
+        pass
 
 
 if __name__ == "__main__":
@@ -85,7 +83,7 @@ if __name__ == "__main__":
     dataBB.data = dataBB.data.reset_index(drop=True)  # réinitialise les index du dataframe
 
     # print(dataBB.data, dataBB.data.shape)
-    print(dataBB.details_connexion_prof("jen-mkx-8xw-zym"))  #fonctionnel
+    print(dataBB.details_connexion_prof("annina.liddell@gmail.com"))  # fonctionnel
     # details_prof = input("entrer le nom d'un prof ou l'identifiant de sa salle")
 
 # jenyross@gmx.co.uk => log pourrie  annina.liddell@gmail.com => log de qualité
