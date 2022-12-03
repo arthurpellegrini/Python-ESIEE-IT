@@ -1,12 +1,32 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 from pandas import *
+
+import matplotlib.pyplot as plt
+
 from datetime import datetime
 
 
+def delta_time(s1: str, s2: str) -> str:
+    """
+    Permet de récupérer la différence de temps entre ces deux horaires.
+    :param s1: date de l'ouverture de la salle
+    :param s2: date de fermeture de la salle
+    :return: La différence en minutes des heures passées en paramètres.
+    """
+    formatting = '%H:%M:%S'
+    delta = datetime.strptime(s2, formatting) - datetime.strptime(s1, formatting)
+    return str(int(delta.total_seconds() / 60))
+
 
 class DataBB:
+    """
+    Cette classe permet de créer des objets contenant des données sur BigBlueButton.
+    """
+
     def __init__(self):
+        """
+        Constructeur de la classe DataBB.
+        """
         self.data = None
 
     def get_data(self, filename: str) -> DataFrame:
@@ -15,23 +35,16 @@ class DataBB:
         """
         self.data = pd.read_fwf(filename, encoding="latin-1", usecols=[0, 1, 5], names=["Date", "Heure", "Data"])
         self.data = self.data.drop_duplicates()
-        self.data = self.data[
-            ~self.data.Data.str.contains('method')]  # retire du dataframe les log contenant les method
+        self.data = self.data[~self.data.Data.str.contains('method')]  # retire du dataframe les logs contenant "method"
 
         return self.data
 
-    def delta_time(self, s1: str, s2: str) -> str:
-        """
-        Permet de récupérer la différence de temps entre ces deux horaires.
-        :param s1: date de l'ouverture de la salle
-        :param s2: date de fermeture de la salle
-        :return: La différence en minutes des deux heures passées en paramètres.
-        """
-        formatting = '%H:%M:%S'
-        delta = datetime.strptime(s2, formatting) - datetime.strptime(s1, formatting)
-        return str(int(delta.total_seconds() / 60))
-
     def num_salle_to_mail(self, prof_id: str):
+        """
+        Convertit un identifiant de salle en mail équivalent.
+        :param prof_id: Le numéro de salle.
+        :return: Un mail qui correspond au numéro de salle.
+        """
         if "@" not in prof_id:
             all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
             for i in range(all_log_prof.shape[0]):
@@ -40,6 +53,11 @@ class DataBB:
         return prof_id
 
     def mail_to_num_salle(self, prof_id: str):
+        """
+        Convertit un mail en numéro de salle équivalent.
+        :param prof_id: Un mail.
+        :return: Un numéro de salle qui correspond au mail.
+        """
         if "@" in prof_id:
             all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
             for i in range(all_log_prof.shape[0]):
@@ -51,6 +69,7 @@ class DataBB:
         """
         Permet de récupérer les détails des connexions en fonction de l'identifiant d'un professeur.
         :param prof_id: correspond au mail ou au numéro de salle du prof
+        :param histogramme: Un boolean qui permet s'il est à True d'afficher un histogramme
         :return: Une chaine de caractères qui contient les détails de connexion d'un professeur.
         """
         prof_id = self.num_salle_to_mail(prof_id)
@@ -73,7 +92,7 @@ class DataBB:
 
                 output += all_log_prof.iat[i, 0] + "\t" + prof_id + " has left room at " + all_log_prof.iat[i, 1] + "\n"
                 left_room_time = all_log_prof.iat[i, 1]
-                temps_travail = int(self.delta_time(start_room_time, left_room_time))
+                temps_travail = int(delta_time(start_room_time, left_room_time))
                 output += "\tDurée connexion -> " + str(temps_travail) + " minutes\n"
                 if last_date != all_log_prof.iat[i, 0]:
                     duree_journaliere.append(temps_travail)
@@ -105,7 +124,12 @@ class DataBB:
 
         return output
 
-    def details_connexion_eleve(self, prof_id: str, histogramme: bool) -> str:
+    def details_connexion_eleve(self, prof_id: str) -> str:
+        """
+        Permet de récupérer les détails des connexions des élèves en fonction de l'identifiant d'un professeur.
+        :param prof_id: correspond au mail ou au numéro de salle du prof
+        :return: Une chaine de caractères qui contient les détails de connexion des élèves d'un professeur.
+        """
         prof_id = self.mail_to_num_salle(prof_id)
         all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
         student_name, student_ip, student_join, student_left, prof_left, output = "", "", "", "", "", ""
@@ -127,10 +151,10 @@ class DataBB:
 
             if 'has left room' in all_log_prof.iat[i, 2] and student_ip in all_log_prof.iat[i, 2] and student_ip != "":
                 student_left = all_log_prof.iat[i, 1]
-                if prof_left != "" and int(self.delta_time(prof_left, student_left)) > 0:
+                if prof_left != "" and int(delta_time(prof_left, student_left)) > 0:
                     output += all_log_prof.iat[i, 0] + "\t" + student_name + " has left room at " + all_log_prof.iat[
                         i, 1] + "\n"
-                    output += "\tDurée connexion -> " + self.delta_time(student_join, student_left) + " minutes\n"
+                    output += "\tDurée connexion -> " + delta_time(student_join, student_left) + " minutes\n"
                 if student_name in list_student:
                     list_student.remove(student_name)
 
@@ -139,13 +163,9 @@ class DataBB:
                 output += all_log_prof.iat[i, 0] + "\t" + "l'hôte has left room at " + all_log_prof.iat[i, 1] + "\n"
                 for student in list_student:
                     output += "\t" + "étudiant partie avec la fermeture de la salle : " + student + "\n"
-                    output += "\tDurée connexion -> " + self.delta_time(student_join,
-                                                                        prof_left) + " minutes\n"
+                    output += "\tDurée connexion -> " + delta_time(student_join,
+                                                                   prof_left) + " minutes\n"
                 list_student = []
-
-        if histogramme:
-            # pas trouvé
-            pass
 
         return output
 
