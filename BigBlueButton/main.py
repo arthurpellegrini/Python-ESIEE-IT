@@ -4,6 +4,7 @@ from pandas import *
 from datetime import datetime
 
 
+
 class DataBB:
     def __init__(self):
         self.data = None
@@ -108,7 +109,7 @@ class DataBB:
         prof_id = self.mail_to_num_salle(prof_id)
         all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
         student_name, student_ip, student_join, student_left, prof_left, output = "", "", "", "", "", ""
-        list_student = []  # étudiants n'éyant pas quitté la salle
+        list_student = []  # étudiants n'ayant pas quitté la salle
         for i in range(all_log_prof.shape[0]):
 
             if 'is joining room' in all_log_prof.iat[i, 2] and "@" not in all_log_prof.iat[i, 2]:
@@ -156,6 +157,7 @@ if __name__ == "__main__":
 
     # print(dataBB.data, dataBB.data.shape)
     print(dataBB.details_connexion_prof("annina.liddell@gmail.com", True))  # fonctionnel
+    print(dataBB.details_connexion_eleve("annina.liddell@gmail.com"))  # fonctionnel
     # details_prof = input("entrer le nom d'un prof ou l'identifiant de sa salle")
 
-# jenyross@gmx.co.uk => log mauvais  annina.liddell@gmail.com => log qualité
+# annina.liddell@gmail.com ou ann-nth-vwr-8ng  => log
