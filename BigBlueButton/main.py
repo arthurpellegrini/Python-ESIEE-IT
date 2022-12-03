@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from pandas import *
 from datetime import datetime
 
@@ -55,6 +56,10 @@ class DataBB:
 
         all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]  # contient toutes les actions d'un prof
 
+        last_date = ""
+        duree_journaliere = []
+        dates = []
+
         start_room_time, left_room_time, output = "", "", ""
         for i in range(all_log_prof.shape[0]):
 
@@ -64,9 +69,17 @@ class DataBB:
                 start_room_time = all_log_prof.iat[i, 1]
 
             if 'has left room' in all_log_prof.iat[i, 2]:
+
                 output += all_log_prof.iat[i, 0] + "\t" + prof_id + " has left room at " + all_log_prof.iat[i, 1] + "\n"
                 left_room_time = all_log_prof.iat[i, 1]
-                output += "\tDurée connexion -> " + self.delta_time(start_room_time, left_room_time) + " minutes\n"
+                temps_travail = int(self.delta_time(start_room_time, left_room_time))
+                output += "\tDurée connexion -> " + str(temps_travail) + " minutes\n"
+                if last_date != all_log_prof.iat[i, 0]:
+                    duree_journaliere.append(temps_travail)
+                    dates.append(all_log_prof.iat[i, 0])
+                else:
+                    duree_journaliere[-1] += temps_travail
+                last_date = all_log_prof.iat[i, 0]
 
             if 'is attempting to login' in all_log_prof.iat[i, 2]:
                 output += all_log_prof.iat[i, 0] + "\t" + prof_id + " is attempting to login at " + all_log_prof.iat[
@@ -75,6 +88,19 @@ class DataBB:
             if 'is joining room' in all_log_prof.iat[i, 2]:
                 output += all_log_prof.iat[i, 0] + "\t" + prof_id + " is joining room at " + all_log_prof.iat[
                     i, 1] + "\n"
+
+        if histogramme:
+            fig, ax = plt.subplots(figsize=(6, 6))
+
+            ax.bar(dates, duree_journaliere)
+            n, bins, patches = ax.hist(dates)
+            fig.autofmt_xdate()
+            plt.xlabel('Dates')
+            plt.xticks(rotation='vertical')
+            plt.ylabel('Volume horaire (min)')
+            plt.title('Volume horaire travaillé par jour de ' + prof_id)
+            plt.grid(True)
+            plt.show()
 
         return output
 
@@ -132,4 +158,4 @@ if __name__ == "__main__":
     print(dataBB.details_connexion_prof("annina.liddell@gmail.com", True))  # fonctionnel
     # details_prof = input("entrer le nom d'un prof ou l'identifiant de sa salle")
 
-# jenyross@gmx.co.uk => log pourrie  annina.liddell@gmail.com => log de qualité
+# jenyross@gmx.co.uk => log mauvais  annina.liddell@gmail.com => log qualité
