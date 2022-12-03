@@ -29,19 +29,29 @@ class DataBB:
         delta = datetime.strptime(s2, formatting) - datetime.strptime(s1, formatting)
         return str(int(delta.total_seconds() / 60))
 
-    def details_connexion_prof(self, prof_id: str) -> str:
+    def num_salle_to_mail(self, prof_id: str):
+        if "@" not in prof_id:
+            all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
+            for i in range(all_log_prof.shape[0]):
+                if 'is starting room' in all_log_prof.iat[i, 2]:
+                    return all_log_prof.iat[i, 2].split(" ")[3]
+        return prof_id
+
+    def mail_to_num_salle(self, prof_id: str):
+        if "@" in prof_id:
+            all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
+            for i in range(all_log_prof.shape[0]):
+                if 'is starting room' in all_log_prof.iat[i, 2]:
+                    return all_log_prof.iat[i, 2].split(" ")[7]
+        return prof_id
+
+    def details_connexion_prof(self, prof_id: str, histogramme: bool) -> str:
         """
         Permet de récupérer les détails des connexions en fonction de l'identifiant d'un professeur.
         :param prof_id: correspond au mail ou au numéro de salle du prof
         :return: Une chaine de caractères qui contient les détails de connexion d'un professeur.
         """
-        if "@" not in prof_id:
-            all_log_prof = self.data.loc[
-                self.data['Data'].str.contains(prof_id)]
-            for i in range(all_log_prof.shape[0]):
-                if 'is starting room' in all_log_prof.iat[i, 2]:
-                    prof_id = all_log_prof.iat[0, 2].split(" ")[3]
-                    break
+        prof_id = self.num_salle_to_mail(prof_id)
 
         all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]  # contient toutes les actions d'un prof
 
@@ -68,13 +78,49 @@ class DataBB:
 
         return output
 
-    def details_connexion_eleve(self, room: str):
-        # l'élève génère un left the room quand il part sinon on considère que lorsque le prof quitte la salle les élèves aussi
+    def details_connexion_eleve(self, prof_id: str, histogramme: bool) -> str:
+        prof_id = self.mail_to_num_salle(prof_id)
+        all_log_prof = self.data.loc[self.data['Data'].str.contains(prof_id)]
+        student_name, student_ip, student_join, student_left, prof_left, output = "", "", "", "", "", ""
+        list_student = []  # étudiants n'éyant pas quitté la salle
+        for i in range(all_log_prof.shape[0]):
 
-        # if 'is joining room' in all_log_prof.iat[i, 2]:
-        #     output += all_log_prof.iat[i, 0] + "\t" + prof_id + " is joining room at " + all_log_prof.iat[
-        #         i, 1] + "\n"
-        pass
+            if 'is joining room' in all_log_prof.iat[i, 2] and "@" not in all_log_prof.iat[i, 2]:
+                student_name = all_log_prof.iat[i, 2].split(" ")[3:5]
+                if 'is' in student_name:
+                    student_name.remove('is')
+                student_name = ' '.join(student_name)
+
+                output += all_log_prof.iat[i, 0] + "\t" + student_name + " is joining room at " + all_log_prof.iat[
+                    i, 1] + "\n"
+                student_join = all_log_prof.iat[i, 1]
+                student_ip = all_log_prof.iat[i, 2].split(" ")[1]
+                if student_name not in list_student:
+                    list_student.append(student_name)
+
+            if 'has left room' in all_log_prof.iat[i, 2] and student_ip in all_log_prof.iat[i, 2] and student_ip != "":
+                student_left = all_log_prof.iat[i, 1]
+                if prof_left != "" and int(self.delta_time(prof_left, student_left)) > 0:
+                    output += all_log_prof.iat[i, 0] + "\t" + student_name + " has left room at " + all_log_prof.iat[
+                        i, 1] + "\n"
+                    output += "\tDurée connexion -> " + self.delta_time(student_join, student_left) + " minutes\n"
+                if student_name in list_student:
+                    list_student.remove(student_name)
+
+            if 'has left room' in all_log_prof.iat[i, 2] and self.num_salle_to_mail(prof_id) in all_log_prof.iat[i, 2]:
+                prof_left = all_log_prof.iat[i, 1]
+                output += all_log_prof.iat[i, 0] + "\t" + "l'hôte has left room at " + all_log_prof.iat[i, 1] + "\n"
+                for student in list_student:
+                    output += "\t" + "étudiant partie avec la fermeture de la salle : " + student + "\n"
+                    output += "\tDurée connexion -> " + self.delta_time(student_join,
+                                                                        prof_left) + " minutes\n"
+                list_student = []
+
+        if histogramme:
+            # pas trouvé
+            pass
+
+        return output
 
 
 if __name__ == "__main__":
@@ -83,7 +129,7 @@ if __name__ == "__main__":
     dataBB.data = dataBB.data.reset_index(drop=True)  # réinitialise les index du dataframe
 
     # print(dataBB.data, dataBB.data.shape)
-    print(dataBB.details_connexion_prof("annina.liddell@gmail.com"))  # fonctionnel
+    print(dataBB.details_connexion_prof("annina.liddell@gmail.com", True))  # fonctionnel
     # details_prof = input("entrer le nom d'un prof ou l'identifiant de sa salle")
 
 # jenyross@gmx.co.uk => log pourrie  annina.liddell@gmail.com => log de qualité
